@@ -562,10 +562,12 @@ export default {
                 username:localStorage.getItem("uname"),
                 pay:this.totalPay
             },{emulateJSON:true}).then((res)=>{
+                console.log(res.body);
                 if(res.body.code == 200){
                     var that = this;
                     var allSucc = true;
                     that.resList.map(function(item,index){
+                        console.log(item.pagenums);
                         that.$http.post('http://lgkj.chuangkegf.com/wuchuang/addplaylist.php',{
                             userid:item.userid,
                             username:item.username,

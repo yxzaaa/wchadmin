@@ -92,8 +92,8 @@ create table userpagehis(
 -- 信息公告
 create table news(
 	nid int primary key auto_increment,
-	usrid varchar(64) not null,
-	usrname varchar(64) not null,
+	userid varchar(64) not null,
+	username varchar(64) not null,
 	new varchar(256) not null,
 	newstate boolean not null
 );

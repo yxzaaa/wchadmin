@@ -181,7 +181,26 @@ export default {
             console.log(err);
         })
         var username = localStorage.getItem('uname');
+        var userid = localStorage.getItem('userid');
         this.userName = username;
+        var timer = setInterval(()=>{
+            this.$http.post('http://lgkj.chuangkegf.com/wuchuang/userinfo.php',{
+                kind:'getnews',
+                userid:userid,
+                username:username
+            },{emulateJSON:true}).then((res)=>{
+                if(res.body.code == 200){
+                    this.showNotice(res.body.data[0]+'，详情到订单中心查看');
+                    var nid = res.body.data[1];
+                    this.$http.post('http://lgkj.chuangkegf.com/wuchuang/userinfo.php',{
+                        kind:'setnew',
+                        nid:nid
+                    },{emulateJSON:true}).then((res)=>{})
+                }
+            },(err)=>{
+                console.log(err);
+            })
+        },10000);
     },
     methods:{
         toIndex(){
