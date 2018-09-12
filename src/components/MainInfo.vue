@@ -12,8 +12,19 @@
                 <li v-for='(item,index) in slideData' :key='index' :class="{'active':item.isActive}"></li>
             </ul>
         </div>
-        <div class=''>
-            <ul></ul>
+        <div class='to-center panel'>
+            <div @click='toAccount()' class='mybtn'><span class='icon icon-gift'></span>充值</div>
+            <div @click='toAccount()' class='mybtn'><span class='icon icon-gift'></span>提现</div>
+        </div>
+        <div class='nav-btns-box panel'>
+            <h3 class='panel-title'>热门彩种</h3>
+            <ul>
+                <li v-for='(item,index) in navList' :key='index' @click='jump(index)'>
+                    <!-- <img src="" alt=""> -->
+                    <span :class="['icon',item.icon]"></span>
+                    <p>{{item.title}}</p>
+                </li>
+            </ul>
         </div>
         <div class='main-box panel-box'>
             <div class='user-info-box panel'>
@@ -67,11 +78,13 @@ export default {
             slideBoxWidth:0,
             Left:0,
             userName:'未登录',
-            restMoney:0.00
+            restMoney:0.00,
+            navList:[]
         }
     },
     mounted(){
         this.$emit('getNum',sessionStorage.getItem('pagenum'));
+        //轮播图代码
         this.slideBoxWidth = document.getElementById('mainBanner').clientWidth;
         this.slideWidth = this.slideData.length*this.slideBoxWidth;
         this.slideAuto();
@@ -79,6 +92,7 @@ export default {
         window.onresize = function(){
             that.setSlide();
         }
+        //轮播代码结束
         var username = localStorage.getItem('uname');
         var userid = localStorage.getItem('userid');
         this.userName = username;
@@ -94,8 +108,44 @@ export default {
         },(err)=>{
             console.log(err);
         })
+        this.$http.post('http://lgkj.chuangkegf.com/wuchuang/pagekind.php',{
+            kind:'gettab',
+            userkind:0
+        },{emulateJSON:true}).then((res)=>{
+            if(res.body.code == 200){
+                var that = this;
+                res.body.data.map(function(item,index){
+                    that.navList.push({
+                        title:item.pagename,
+                        icon:item.icon,
+                        img:item.pageimg,
+                        path:item.pagepath,
+                        pageNum:item.pid
+                    })
+                })
+                that.navList.shift();
+            }
+        },(err)=>{
+            console.log(err);
+        })
     },
     methods:{
+        toAccount(){
+            this.$router.push({path:'/account'});
+            this.help = false;
+            this.user = false;
+        },
+        jump(index){
+            sessionStorage.setItem('pagenum',this.navList[index].pageNum);
+            sessionStorage.setItem('title',this.navList[index].title);
+            this.$router.replace({
+                path:"/"+this.navList[index].path,
+                query:{
+                    pageid:this.navList[index].pageNum,
+                    pagename:this.navList[index].title
+                }
+            });
+        },
         setSlide(){
             try{
                 this.slideBoxWidth = document.getElementById('mainBanner').clientWidth;

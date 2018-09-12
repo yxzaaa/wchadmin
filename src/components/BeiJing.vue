@@ -15,7 +15,12 @@
             </div>
             <div class='page-num'>
                 <p>第<span>20180324</span>期开奖号码</p>
-                <div class='time-box'>
+                <div class='time-box beijing'>
+                    <span>1</span>
+                    <span>4</span>
+                    <span>2</span>
+                    <span>6</span>
+                    <span>8</span>
                     <span>1</span>
                     <span>4</span>
                     <span>2</span>
@@ -80,13 +85,13 @@
                                 <span class='text'>倍</span>
                             </div>
                             <div>
-                                <span :class="{'active':numPageData.pagekind==1}" @click="changekind(1,numPageData)">元</span>
-                                <span :class="{'active':numPageData.pagekind==0.1}" @click="changekind(0.1,numPageData)">角</span>
-                                <span :class="{'active':numPageData.pagekind==0.01}" @click="changekind(0.01,numPageData)">分</span>
+                                <span :class="{'active':numPageData.playkind==1}" @click="changekind(1,numPageData)">元</span>
+                                <span :class="{'active':numPageData.playkind==0.1}" @click="changekind(0.1,numPageData)">角</span>
+                                <span :class="{'active':numPageData.playkind==0.01}" @click="changekind(0.01,numPageData)">分</span>
                             </div>
                             <div>
                                 <span>累计 {{numPageData.pagecount}} 注</span>
-                                <span>共 {{(numPageData.pagecount*numPageData.pagebei*numPageData.pagekind).toFixed(2)}} 元</span>
+                                <span>共 {{(numPageData.pagecount*numPageData.pagebei*numPageData.playkind).toFixed(2)}} 元</span>
                             </div>
                             <div class='mybtn' @click='addPageList(numPageData,1)'>
                                 选好了
@@ -136,13 +141,13 @@
                                 <span class='text'>倍</span>
                             </div>
                             <div>
-                                <span :class="{'active':doubleData.pagekind==1}" @click="changekind(1,doubleData)">元</span>
-                                <span :class="{'active':doubleData.pagekind==0.1}" @click="changekind(0.1,doubleData)">角</span>
-                                <span :class="{'active':doubleData.pagekind==0.01}" @click="changekind(0.01,doubleData)">分</span>
+                                <span :class="{'active':doubleData.playkind==1}" @click="changekind(1,doubleData)">元</span>
+                                <span :class="{'active':doubleData.playkind==0.1}" @click="changekind(0.1,doubleData)">角</span>
+                                <span :class="{'active':doubleData.playkind==0.01}" @click="changekind(0.01,doubleData)">分</span>
                             </div>
                             <div>
                                 <span>累计 {{doubleData.pagecount}} 注</span>
-                                <span>共 {{(doubleData.pagecount*doubleData.pagebei*doubleData.pagekind).toFixed(2)}} 元</span>
+                                <span>共 {{(doubleData.pagecount*doubleData.pagebei*doubleData.playkind).toFixed(2)}} 元</span>
                             </div>
                             <div class='mybtn' @click='addPageList(doubleData,1)'>
                                 选好了
@@ -192,13 +197,13 @@
                                 <span class='text'>倍</span>
                             </div>
                             <div>
-                                <span :class="{'active':doubleData.pagekind==1}" @click="changekind(1,doubleData)">元</span>
-                                <span :class="{'active':doubleData.pagekind==0.1}" @click="changekind(0.1,doubleData)">角</span>
-                                <span :class="{'active':doubleData.pagekind==0.01}" @click="changekind(0.01,doubleData)">分</span>
+                                <span :class="{'active':doubleData.playkind==1}" @click="changekind(1,doubleData)">元</span>
+                                <span :class="{'active':doubleData.playkind==0.1}" @click="changekind(0.1,doubleData)">角</span>
+                                <span :class="{'active':doubleData.playkind==0.01}" @click="changekind(0.01,doubleData)">分</span>
                             </div>
                             <div>
                                 <span>累计 {{doubleData.pagecount}} 注</span>
-                                <span>共 {{(doubleData.pagecount*doubleData.pagebei*doubleData.pagekind).toFixed(2)}} 元</span>
+                                <span>共 {{(doubleData.pagecount*doubleData.pagebei*doubleData.playkind).toFixed(2)}} 元</span>
                             </div>
                             <div class='mybtn' @click='addPageList(doubleData,1)'>
                                 选好了
@@ -223,7 +228,7 @@
                     <ul class='res-list'>
                         <li v-for="(item,index) in resList" :key='index'>
                             <div>
-                                <span>{{item.pagename}}</span>
+                                <span>{{item.playname}}</span>
                                 <span>{{item.pagenums}}</span>
                             </div>
                             <div>
@@ -252,7 +257,7 @@ export default {
             toggleTab:1,
             //数字盘
             numPageData:{
-                pagename:'数字盘',
+                playname:'数字盘',
                 kind:1,
                 pagenums:[
                     {
@@ -297,14 +302,14 @@ export default {
                     },
                 ],
                 numlist:[],
-                pagekind:1,
+                playkind:1,
                 pagecount:0,
                 pagebei:1,
                 pagepay:0
             },
             //双面盘
             doubleData:{
-                pagename:'双面盘',
+                playname:'双面盘',
                 kind:1,
                 pagenums:[
                     {
@@ -349,40 +354,40 @@ export default {
                     },
                 ],
                 numlist:[],
-                pagekind:1,
+                playkind:1,
                 pagecount:0,
                 pagebei:1,
                 pagepay:0
             },
             //前三
             beforeData:{
-                pagename:'前三',
+                playname:'前三',
                 kind:2,
                 textinfo:'',
                 numlist:[],
-                pagekind:1,
+                playkind:1,
                 pagecount:0,
                 pagebei:1,
                 pagepay:0
             },
             //中三
             centerData:{
-                pagename:'中三',
+                playname:'中三',
                 kind:2,
                 textinfo:'',
                 numlist:[],
-                pagekind:1,
+                playkind:1,
                 pagecount:0,
                 pagebei:1,
                 pagepay:0
             },
             //后三
             afterData:{
-                pagename:'后三',
+                playname:'后三',
                 kind:2,
                 textinfo:'',
                 numlist:[],
-                pagekind:1,
+                playkind:1,
                 pagecount:0,
                 pagebei:1,
                 pagepay:0
@@ -424,15 +429,19 @@ export default {
         addPageList(data,kind){
             var tcount = 0;
             var tpay = 0;
-            data.pagepay = (data.pagecount*data.pagebei*data.pagekind).toFixed(2);
+            data.pagepay = (data.pagecount*data.pagebei*data.playkind).toFixed(2);
             if(data.pagecount>0){
                 this.resList.push({
-                    pagename:data.pagename,
-                    pagekind:data.pagekind,
+                    pageid:this.pageId,
+                    pagename:this.pageName,
+                    userid:localStorage.getItem('userid'),
+                    username:localStorage.getItem('uname'),
+                    playname:data.playname,
+                    playkind:data.playkind,
                     pagenums:this.transPage(data.numlist,kind),
                     pagecount:data.pagecount,
                     pagebei:data.pagebei,
-                    pagepay:data.pagepay
+                    pagepay:data.pagepay,
                 })
             }else{
                 alert('号码不完整，请重新选择！');
@@ -583,7 +592,7 @@ export default {
             }
         },
         changekind(str,data){
-            data.pagekind = str;
+            data.playkind = str;
         },
         downBei(data){
             if(data.pagebei>1){

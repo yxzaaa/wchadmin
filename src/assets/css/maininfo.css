@@ -122,6 +122,68 @@
     color:#fff;
     border:1px solid transparent;
 }
+.nav-btns-box{
+    display: none;
+    width:100%;
+    margin-bottom: 20px;
+}
+.nav-btns-box>ul{
+    width:100%;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+.nav-btns-box>ul>li{
+    width:33.33%;
+    box-sizing: border-box;
+    border-bottom:1px solid #eee;
+    padding:10px;
+}
+.nav-btns-box>ul>li>img{
+    display: block;
+    width:60%;
+    margin:20px auto;
+}
+.nav-btns-box>ul>li>span{
+    display: block;
+    width:60%;
+    margin:10px auto;
+    font-size: 28px;
+    text-align: center;
+    color:#be1d2c;
+}
+.nav-btns-box>ul>li>p{
+    width:100%;
+    text-align: center;
+    font-size: 14px;
+    line-height: 32px;
+    color:#777;
+}
+.to-center{
+    width:100%;
+    justify-content: flex-start;
+    border-bottom:1px solid #eee;
+    margin-bottom: 20px;
+    display: none;
+}
+.to-center>div{
+    width:50%;
+    line-height: 60px;
+    text-align: center;
+    color:#777;
+    font-size: 15px;
+    cursor: pointer;
+}
+.to-center>div:first-child{
+    border-right:1px solid #eee;
+}
+.to-center>div>span{
+    font-size: 18px;
+    color:#be1d2c;
+    display: inline-block;
+    padding-right:5px;
+    vertical-align: middle;
+}
 @media screen and (max-width:640px){
     .main-banner{
         height:130px;
@@ -133,5 +195,11 @@
     .notice-web-box{
         width:100%;
         margin-left: 0px;
+    }
+    .nav-btns-box{
+        display: block;
+    }
+    .to-center{
+        display: flex;
     }
 }

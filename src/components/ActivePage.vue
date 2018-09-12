@@ -78,13 +78,13 @@
                                 <span class='text'>倍</span>
                             </div>
                             <div>
-                                <span :class="{'active':numPageData.pagekind==1}" @click="changekind(1,numPageData)">元</span>
-                                <span :class="{'active':numPageData.pagekind==0.1}" @click="changekind(0.1,numPageData)">角</span>
-                                <span :class="{'active':numPageData.pagekind==0.01}" @click="changekind(0.01,numPageData)">分</span>
+                                <span :class="{'active':numPageData.playkind==1}" @click="changekind(1,numPageData)">元</span>
+                                <span :class="{'active':numPageData.playkind==0.1}" @click="changekind(0.1,numPageData)">角</span>
+                                <span :class="{'active':numPageData.playkind==0.01}" @click="changekind(0.01,numPageData)">分</span>
                             </div>
                             <div>
                                 <span>累计 {{numPageData.pagecount}} 注</span>
-                                <span>共 {{(numPageData.pagecount*numPageData.pagebei*numPageData.pagekind).toFixed(2)}} 元</span>
+                                <span>共 {{(numPageData.pagecount*numPageData.pagebei*numPageData.playkind).toFixed(2)}} 元</span>
                             </div>
                             <div class='mybtn' @click='addPageList(numPageData,1)'>
                                 选好了
@@ -134,13 +134,13 @@
                                 <span class='text'>倍</span>
                             </div>
                             <div>
-                                <span :class="{'active':doubleData.pagekind==1}" @click="changekind(1,doubleData)">元</span>
-                                <span :class="{'active':doubleData.pagekind==0.1}" @click="changekind(0.1,doubleData)">角</span>
-                                <span :class="{'active':doubleData.pagekind==0.01}" @click="changekind(0.01,doubleData)">分</span>
+                                <span :class="{'active':doubleData.playkind==1}" @click="changekind(1,doubleData)">元</span>
+                                <span :class="{'active':doubleData.playkind==0.1}" @click="changekind(0.1,doubleData)">角</span>
+                                <span :class="{'active':doubleData.playkind==0.01}" @click="changekind(0.01,doubleData)">分</span>
                             </div>
                             <div>
                                 <span>累计 {{doubleData.pagecount}} 注</span>
-                                <span>共 {{(doubleData.pagecount*doubleData.pagebei*doubleData.pagekind).toFixed(2)}} 元</span>
+                                <span>共 {{(doubleData.pagecount*doubleData.pagebei*doubleData.playkind).toFixed(2)}} 元</span>
                             </div>
                             <div class='mybtn' @click='addPageList(doubleData,1)'>
                                 选好了
@@ -170,13 +170,13 @@
                                 <span class='text'>倍</span>
                             </div>
                             <div>
-                                <span :class="{'active':beforeData.pagekind==1}" @click="changekind(1,beforeData)">元</span>
-                                <span :class="{'active':beforeData.pagekind==0.1}" @click="changekind(0.1,beforeData)">角</span>
-                                <span :class="{'active':beforeData.pagekind==0.01}" @click="changekind(0.01,beforeData)">分</span>
+                                <span :class="{'active':beforeData.playkind==1}" @click="changekind(1,beforeData)">元</span>
+                                <span :class="{'active':beforeData.playkind==0.1}" @click="changekind(0.1,beforeData)">角</span>
+                                <span :class="{'active':beforeData.playkind==0.01}" @click="changekind(0.01,beforeData)">分</span>
                             </div>
                             <div>
                                 <span>累计 {{beforeData.pagecount}} 注</span>
-                                <span>共 {{(beforeData.pagecount*beforeData.pagebei*beforeData.pagekind).toFixed(2)}} 元</span>
+                                <span>共 {{(beforeData.pagecount*beforeData.pagebei*beforeData.playkind).toFixed(2)}} 元</span>
                             </div>
                             <div class='mybtn' @click='addPageList(beforeData,2)'>
                                 选好了
@@ -206,13 +206,13 @@
                                 <span class='text'>倍</span>
                             </div>
                             <div>
-                                <span :class="{'active':centerData.pagekind==1}" @click="changekind(1,centerData)">元</span>
-                                <span :class="{'active':centerData.pagekind==0.1}" @click="changekind(0.1,centerData)">角</span>
-                                <span :class="{'active':centerData.pagekind==0.01}" @click="changekind(0.01,centerData)">分</span>
+                                <span :class="{'active':centerData.playkind==1}" @click="changekind(1,centerData)">元</span>
+                                <span :class="{'active':centerData.playkind==0.1}" @click="changekind(0.1,centerData)">角</span>
+                                <span :class="{'active':centerData.playkind==0.01}" @click="changekind(0.01,centerData)">分</span>
                             </div>
                             <div>
                                 <span>累计 {{centerData.pagecount}} 注</span>
-                                <span>共 {{(centerData.pagecount*centerData.pagebei*centerData.pagekind).toFixed(2)}} 元</span>
+                                <span>共 {{(centerData.pagecount*centerData.pagebei*centerData.playkind).toFixed(2)}} 元</span>
                             </div>
                             <div class='mybtn' @click='addPageList(centerData,2)'>
                                 选好了
@@ -242,13 +242,13 @@
                                 <span class='text'>倍</span>
                             </div>
                             <div>
-                                <span :class="{'active':afterData.pagekind==1}" @click="changekind(1,afterData)">元</span>
-                                <span :class="{'active':afterData.pagekind==0.1}" @click="changekind(0.1,afterData)">角</span>
-                                <span :class="{'active':afterData.pagekind==0.01}" @click="changekind(0.01,afterData)">分</span>
+                                <span :class="{'active':afterData.playkind==1}" @click="changekind(1,afterData)">元</span>
+                                <span :class="{'active':afterData.playkind==0.1}" @click="changekind(0.1,afterData)">角</span>
+                                <span :class="{'active':afterData.playkind==0.01}" @click="changekind(0.01,afterData)">分</span>
                             </div>
                             <div>
                                 <span>累计 {{afterData.pagecount}} 注</span>
-                                <span>共 {{(afterData.pagecount*afterData.pagebei*afterData.pagekind).toFixed(2)}} 元</span>
+                                <span>共 {{(afterData.pagecount*afterData.pagebei*afterData.playkind).toFixed(2)}} 元</span>
                             </div>
                             <div class='mybtn' @click='addPageList(afterData,2)'>
                                 选好了
@@ -273,7 +273,7 @@
                     <ul class='res-list'>
                         <li v-for="(item,index) in resList" :key='index'>
                             <div>
-                                <span>{{item.pagename}}</span>
+                                <span>{{item.playname}}</span>
                                 <span>{{item.pagenums}}</span>
                             </div>
                             <div>
@@ -289,7 +289,7 @@
             <div class='confirm-choose panel'>
                 <div>总注数<span>{{totalCount}} 注</span></div>
                 <div>总金额<span>{{totalPay}} 元</span></div>
-                <div :class="['mybtn',{'no-confirm':resList.length==0}]" id='confirmChoose'>确认投注</div>
+                <div :class="['mybtn',{'no-confirm':resList.length==0}]" id='confirmChoose' @click='confirmChoose()'>确认投注</div>
             </div>
         </div>
     </div>
@@ -302,7 +302,7 @@ export default {
             toggleTab:1,
             //数字盘
             numPageData:{
-                pagename:'数字盘',
+                playname:'数字盘',
                 kind:1,
                 pagenums:[
                     {
@@ -327,14 +327,14 @@ export default {
                     },
                 ],
                 numlist:[],
-                pagekind:1,
+                playkind:1,
                 pagecount:0,
                 pagebei:1,
                 pagepay:0
             },
             //双面盘
             doubleData:{
-                pagename:'双面盘',
+                playname:'双面盘',
                 kind:1,
                 pagenums:[
                     {
@@ -359,40 +359,40 @@ export default {
                     },
                 ],
                 numlist:[],
-                pagekind:1,
+                playkind:1,
                 pagecount:0,
                 pagebei:1,
                 pagepay:0
             },
             //前三
             beforeData:{
-                pagename:'前三',
+                playname:'前三',
                 kind:2,
                 textinfo:'',
                 numlist:[],
-                pagekind:1,
+                playkind:1,
                 pagecount:0,
                 pagebei:1,
                 pagepay:0
             },
             //中三
             centerData:{
-                pagename:'中三',
+                playname:'中三',
                 kind:2,
                 textinfo:'',
                 numlist:[],
-                pagekind:1,
+                playkind:1,
                 pagecount:0,
                 pagebei:1,
                 pagepay:0
             },
             //后三
             afterData:{
-                pagename:'后三',
+                playname:'后三',
                 kind:2,
                 textinfo:'',
                 numlist:[],
-                pagekind:1,
+                playkind:1,
                 pagecount:0,
                 pagebei:1,
                 pagepay:0
@@ -427,6 +427,7 @@ export default {
         //监听路由，只要路由有变化(路径，参数等变化)都有执行下面的函数，你可以
         $route: {
             handler: function (val, oldVal) {
+                this.clearAllData();
                 this.getPageData();
                 //created事件触发的函数可以在这里写...  
                 //都是componentA组件，声明周期还在，改变不了
@@ -457,8 +458,6 @@ export default {
                             this.getPageData();
                         },1000)
                     }
-                }else{
-                    alert('网络错误！');
                 }
             })
         },
@@ -531,15 +530,19 @@ export default {
         addPageList(data,kind){
             var tcount = 0;
             var tpay = 0;
-            data.pagepay = (data.pagecount*data.pagebei*data.pagekind).toFixed(2);
+            data.pagepay = (data.pagecount*data.pagebei*data.playkind).toFixed(2);
             if(data.pagecount>0){
                 this.resList.push({
-                    pagename:data.pagename,
-                    pagekind:data.pagekind,
+                    pageid:this.pageId,
+                    pagename:this.pageName,
+                    userid:localStorage.getItem('userid'),
+                    username:localStorage.getItem('uname'),
+                    playname:data.playname,
+                    playkind:data.playkind,
                     pagenums:this.transPage(data.numlist,kind),
                     pagecount:data.pagecount,
                     pagebei:data.pagebei,
-                    pagepay:data.pagepay
+                    pagepay:data.pagepay,
                 })
             }else{
                 alert('号码不完整，请重新选择！');
@@ -550,6 +553,45 @@ export default {
             });
             this.totalCount = tcount;
             this.totalPay = tpay.toFixed(2);
+        },
+        confirmChoose(){
+            var reslist = this.resList;
+            this.$http.post('http://lgkj.chuangkegf.com/wuchuang/userinfo.php',{
+                kind:'changerest',
+                userid:localStorage.getItem("userid"),
+                username:localStorage.getItem("uname"),
+                pay:this.totalPay
+            },{emulateJSON:true}).then((res)=>{
+                if(res.body.code == 200){
+                    var that = this;
+                    var allSucc = true;
+                    that.resList.map(function(item,index){
+                        that.$http.post('http://lgkj.chuangkegf.com/wuchuang/addplaylist.php',{
+                            userid:item.userid,
+                            username:item.username,
+                            pageid:item.pageid,
+                            pagename:item.pagename,
+                            expect:that.expect,
+                            playname:item.playname,
+                            playkind:item.playkind,
+                            pagenums:item.pagenums,
+                            pagecount:item.pagecount,
+                            pagebei:item.pagebei,
+                            pagepay:item.pagepay
+                        },{emulateJSON:true}).then((res)=>{
+                            if(res.body.code == 400){
+                                allSucc = false;
+                            }
+                        })
+                    });
+                    if(allSucc == true){
+                        this.$emit('showNotice','投注成功');
+                        this.clearAllData();
+                    }
+                }else if(res.body.code == 300){
+                    this.$emit('showNotice','您的余额不足，请及时充值');
+                }
+            })
         },
         removeRes(index){
             var tcount = 0;
@@ -666,7 +708,7 @@ export default {
             }
         },
         changekind(str,data){
-            data.pagekind = str;
+            data.playkind = str;
         },
         downBei(data){
             if(data.pagebei>1){
@@ -675,7 +717,108 @@ export default {
         },
         upBei(data){
             data.pagebei ++;
-        }
+        },
+        clearAllData(){
+            this.numPageData = {
+                playname:'数字盘',
+                kind:1,
+                pagenums:[
+                    {
+                        itemname:'万位',
+                        itemdata:[]
+                    },
+                    {
+                        itemname:'千位',
+                        itemdata:[]
+                    },
+                    {
+                        itemname:'百位',
+                        itemdata:[]
+                    },
+                    {
+                        itemname:'十位',
+                        itemdata:[]
+                    },
+                    {
+                        itemname:'个位',
+                        itemdata:[]
+                    },
+                ],
+                numlist:[],
+                playkind:1,
+                pagecount:0,
+                pagebei:1,
+                pagepay:0
+            };
+            //双面盘
+            this.doubleData={
+                playname:'双面盘',
+                kind:1,
+                pagenums:[
+                    {
+                        itemname:'万位',
+                        itemdata:[]
+                    },
+                    {
+                        itemname:'千位',
+                        itemdata:[]
+                    },
+                    {
+                        itemname:'百位',
+                        itemdata:[]
+                    },
+                    {
+                        itemname:'十位',
+                        itemdata:[]
+                    },
+                    {
+                        itemname:'个位',
+                        itemdata:[]
+                    },
+                ],
+                numlist:[],
+                playkind:1,
+                pagecount:0,
+                pagebei:1,
+                pagepay:0
+            };
+            //前三
+            this.beforeData={
+                playname:'前三',
+                kind:2,
+                textinfo:'',
+                numlist:[],
+                playkind:1,
+                pagecount:0,
+                pagebei:1,
+                pagepay:0
+            };
+            //中三
+            this.centerData={
+                playname:'中三',
+                kind:2,
+                textinfo:'',
+                numlist:[],
+                playkind:1,
+                pagecount:0,
+                pagebei:1,
+                pagepay:0
+            };
+            //后三
+            this.afterData={
+                playname:'后三',
+                kind:2,
+                textinfo:'',
+                numlist:[],
+                playkind:1,
+                pagecount:0,
+                pagebei:1,
+                pagepay:0
+            };
+            this.resList=[];
+            this.totalCount = 0;
+            this.totalPay = 0;
+        },
     }
 }
 </script>

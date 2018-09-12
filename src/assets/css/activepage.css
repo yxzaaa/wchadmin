@@ -5,7 +5,7 @@
     width:auto;
 }
 .top-message>.page-logo{
-    width:300px;
+    width:320px;
     height:130px;
     /* border-right:1px solid #eee; */
 }
@@ -99,8 +99,22 @@
     font-size: 20px;
     font-weight: bold;
 }
+.top-message>.page-num>.time-box.beijing>span{
+    display: inline-block;
+    background: #be1d2c;
+    color:#fff;
+    border-radius: 50%;
+    width:28px;
+    height:28px;
+    line-height: 28px;
+    margin:8px 0px;
+    margin-left:1px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+}
 .top-message>.page-his{
-    width:calc(60% - 260px);
+    width:calc(60% - 320px);
     max-width: 375px;
     min-width: 280px;
     height:130px;
@@ -127,6 +141,7 @@
     line-height: 20px;
     padding:5px;
     text-align: left;
+    font-size: 14px;
 }
 .top-message>.page-his>.time-box>li>span{
     float: right;
@@ -211,7 +226,7 @@
 }
 .choose-box>.choose-list>li{
     width:100%;
-    padding:10px 5px;
+    padding:10px 0px;
     display: flex;
     justify-content: flex-start;
     flex-wrap: wrap;

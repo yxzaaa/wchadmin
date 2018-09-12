@@ -6,13 +6,11 @@
             <div class='logo'><img src="../assets/images/logo.png" alt="" /></div>
             <div class='app-name'>{{appName}}&nbsp;&nbsp;<span>&nbsp;{{comName}}</span></div>
             <div class='user-tools'>
-                <!-- <span class="icon-cog" @click='setSys()'></span>
-                <span class="icon-off" @click='offSys()'></span> -->
                 <div class='notice-tool'>
-                    <!-- <div :class="['tool-items',{'active':notice}]" @click="toggleNotice">
+                    <div :class="['tool-items',{'active':notice}]" @click="toggleNotice">
                         <span class='icon icon-comment-alt'></span>
                         <span class='notice-count'>2</span>
-                    </div> -->
+                    </div>
                     <div :class="['notice-item',{'show':hasNotice}]">
                         <p>{{noticeInfo}}</p>
                         <span v-if="hasNotice"></span>
@@ -40,7 +38,7 @@
                         <span class='icon icon-angle-down sm-hide'></span>
                     </div>
                     <ul class='tool-list' v-if='user'>
-                        <!-- <li @click='toIndex()' style='display:none;' class='sm-show'><a>首页</a></li> -->
+                        <li @click='toIndex()' style='display:none;' class='sm-show'><a>首页</a></li>
                         <li @click='toAccount()'><a>账户中心</a></li>
                         <li @click='toAccount()'><a>订单中心</a></li>
                         <li @click='offSys()'><a href="">登出</a></li>
@@ -149,50 +147,49 @@ export default {
         },(err)=>{
             console.log(err);
         })
-        // if(this.uKind == 1){
-        //     this.appName = '后台管理平台';
-        // }
-        // this.$http.post('http://lgkj.chuangkegf.com/wuchuang/pagekind.php',{
-        //     kind:'gettab',
-        //     userkind:this.uKind
-        // },{emulateJSON:true}).then((res)=>{
-        //     if(res.body.code == 200){
-        //         var that = this;
-        //         res.body.data.map(function(item,index){
-        //             that.navList.push({
-        //                 title:item.pagename,
-        //                 icon:item.icon,
-        //                 isActive:false,
-        //                 path:item.pagepath,
-        //                 pageNum:item.pid
-        //             })
-        //         })
-        //         console.log(that.navList);
-        //         if(sessionStorage.getItem('pagenum')){
-        //             var pagenum = sessionStorage.getItem('pagenum');
-        //             that.navList.map(function(item,index){
-        //                 item.isActive = false;
-        //                 if(item.pageNum == pagenum){
-        //                     item.isActive = true;
-        //                 }
-        //             })
-        //         }else{
-        //             this.changePage(0,this.navList[0].path);
-        //         }
-        //     }
-        // },(err)=>{
-        //     console.log(err);
-        // })
+        if(this.uKind == 1){
+            this.appName = '后台管理平台';
+        }
+        this.$http.post('http://lgkj.chuangkegf.com/wuchuang/pagekind.php',{
+            kind:'gettab',
+            userkind:this.uKind
+        },{emulateJSON:true}).then((res)=>{
+            if(res.body.code == 200){
+                var that = this;
+                res.body.data.map(function(item,index){
+                    that.navList.push({
+                        title:item.pagename,
+                        icon:item.icon,
+                        isActive:false,
+                        path:item.pagepath,
+                        pageNum:item.pid
+                    })
+                })
+                if(sessionStorage.getItem('pagenum')){
+                    var pagenum = sessionStorage.getItem('pagenum');
+                    that.navList.map(function(item,index){
+                        item.isActive = false;
+                        if(item.pageNum == pagenum){
+                            item.isActive = true;
+                        }
+                    })
+                }else{
+                    this.changePage(0,this.navList[0].path);
+                }
+            }
+        },(err)=>{
+            console.log(err);
+        })
         var username = localStorage.getItem('uname');
         this.userName = username;
     },
     methods:{
-        // toIndex(){
-        //     this.$router.push({path:'/index'});
-        //     this.notice = false;
-        //     this.help = false;
-        //     this.user = false;
-        // },
+        toIndex(){
+            this.$router.push({path:'/index'});
+            this.notice = false;
+            this.help = false;
+            this.user = false;
+        },
         showNotice(msg){
             this.noticeInfo = msg;
             this.hasNotice = true;
@@ -241,6 +238,7 @@ export default {
             this.navList[index].isActive = true;
             sessionStorage.setItem('pagenum',this.navList[index].pageNum);
             sessionStorage.setItem('title',this.navList[index].title);
+            sessionStorage.setItem('ukind',this.uKind);
             this.$router.replace({
                 path:"/"+path,
                 query:{

@@ -75,16 +75,17 @@ create table pagehis(
 -- 用户投注历史信息
 create table userpagehis(
 	uhid int primary key auto_increment,
-	userid int not null,
+	userid varchar(64) not null,
     username varchar(32) not null,
 	pageid int not null,
 	pagename varchar(32) not null,
-    playkind varchar(32) not null,
-    playbei int not null,
-    playmodal varchar(8) not null,
-	userpagenum varchar(32) not null,
-	userpagepay decimal(14,2) not null,
-	userpageget decimal(14,2) not null,
+	expect varchar(32) not null,
+    playname varchar(32) not null,
+    pagebei int not null,
+    playkind float not null,
+	pagenums varchar(256) not null,
+	pagepay decimal(14,2) not null,
+	pageget decimal(14,2) not null,
 	pagestate boolean not null
 );
 -- 信息公告
