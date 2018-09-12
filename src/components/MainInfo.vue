@@ -1,0 +1,130 @@
+<template>
+    <div class='main-page-box page-box'>
+        <!-- <div class='scroll-box'>
+            <div>公告</div>
+            <marquee class='scroll-content'><span>Welcom CSDN!</span></marquee>
+        </div> -->
+        <div class='main-banner panel-box' id='mainBanner'>
+            <ul class='slide-box' :style="{width:slideWidth+'px',left:'-'+Left+'px'}" id='slideList'>
+                <li v-for='(item,index) in slideData' :key='index' class='banner-item' :style="{width:slideBoxWidth+'px'}"><img :src="item.src" alt=""></li>
+            </ul>
+            <ul class='slide-sign'>
+                <li v-for='(item,index) in slideData' :key='index' :class="{'active':item.isActive}"></li>
+            </ul>
+        </div>
+        <div class=''>
+            <ul></ul>
+        </div>
+        <div class='main-box panel-box'>
+            <div class='user-info-box panel'>
+                <h3 class='panel-title'><span class='icon icon-user' style='padding-right:10px;display:inline-block;font-size:16px;'></span>个人信息</h3>
+                <div>
+                    <div class='main-avatar'>
+                        <img src="../assets/images/avatar.png" alt="">
+                    </div>
+                    <h4 class='user-name'>
+                        {{userName}}
+                    </h4>
+                    <div class='main-pay-detail'>
+                        账户余额：<span>{{restMoney}}</span>
+                        <!-- <span class='pay-btn'>充值</span> -->
+                    </div>
+                    <div class='main-pay-detail'>
+                        可提现金额：<span>{{restMoney}}</span>
+                        <!-- <span class='pay-btn'>提款</span> -->
+                    </div>
+                </div>
+            </div>
+            <div class='notice-web-box panel'>
+                <h3 class='panel-title'><span class='icon  icon-bell' style='padding-right:10px;display:inline-block;font-size:16px;'></span>通知公告</h3>
+                <div>
+                    <ul></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+<script>
+import '../assets/css/maininfo.css';
+export default {
+    data(){
+        return {
+            slideData:[
+                {
+                    isActive:true,
+                    src:'/static/img/index-ban.png',
+                },
+                {
+                    isActive:false,
+                    src:'/static/img/index-ban1.png',
+                },
+                {
+                    isActive:false,
+                    src:'/static/img/index-ban1.png',
+                },
+            ],
+            slideWidth:0,
+            slideBoxWidth:0,
+            Left:0,
+            userName:'未登录',
+            restMoney:0.00
+        }
+    },
+    mounted(){
+        this.$emit('getNum',sessionStorage.getItem('pagenum'));
+        this.slideBoxWidth = document.getElementById('mainBanner').clientWidth;
+        this.slideWidth = this.slideData.length*this.slideBoxWidth;
+        this.slideAuto();
+        var that = this;
+        window.onresize = function(){
+            that.setSlide();
+        }
+        var username = localStorage.getItem('uname');
+        var userid = localStorage.getItem('userid');
+        this.userName = username;
+        this.$http.post('http://lgkj.chuangkegf.com/wuchuang/userinfo.php',{
+            kind:'maininfo',
+            userid:userid,
+            username:username,
+        },{emulateJSON:true}).then((res)=>{
+            console.log(res);
+            if(res.body.code == 200){
+                this.restMoney = res.body.data[0];
+            }
+        },(err)=>{
+            console.log(err);
+        })
+    },
+    methods:{
+        setSlide(){
+            try{
+                this.slideBoxWidth = document.getElementById('mainBanner').clientWidth;
+                this.slideWidth = this.slideData.length*this.slideBoxWidth;
+            }catch(res){
+                console.log(res);
+            }
+        },
+        slideAuto(){
+            var page = 0;
+            var that = this;
+            var timer = setInterval(function(){
+                page++;
+                if(page == that.slideData.length){
+                    page = 0;
+                    that.Left = that.slideBoxWidth*page;
+                }else{
+                    that.Left = that.slideBoxWidth*page;
+                }
+                that.slideData.map(function(item,index){
+                    if(index == page){
+                        item.isActive = true;
+                    }else{
+                        item.isActive = false;
+                    }
+                })
+            },5000)
+        }
+    }
+}
+</script>
+

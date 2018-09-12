@@ -1,0 +1,231 @@
+.login-box{
+    width:100%;
+    height:100vh;
+    position: relative;
+    overflow: hidden;
+    background: #F3F5F8;
+}
+.back-image{
+    position: absolute;
+    top:0px;
+    left:0px;
+    width:100%;
+    height:100%;
+    z-index: 10;
+}
+.back-image>img{
+    position: absolute;
+    top:0px;
+    left:50%;
+    width:1920px;
+    margin-left:-960px;
+}
+.login-content{
+    width:80%;
+    position: relative;
+    max-width: 1000px;
+    height:450px;
+    z-index: 20;
+    background: #fff;
+    margin:0 auto;
+    margin-top:200px;
+    display: flex;
+    justify-content: flex-start;
+    border-radius: 5px;
+    box-shadow: 0px 5px 10px rgba(0,0,0,.15);
+    overflow: hidden;
+}
+.login-content>.login-item{
+    width:430px;
+    height:100%;
+    padding:30px;
+}
+.login-content>.login-img{
+    width:calc(100% - 430px);
+    height:100%;
+    overflow: hidden;
+    position: relative;
+}
+.login-content>.login-img>img{
+    height:100%;
+    position: absolute;
+    right:0px;
+    top:0px;
+}
+.sys-title{
+    width:100%;
+    line-height: 54px;
+    font-size: 24px;
+    text-align: center;
+    color:#999;
+}
+.com-name{
+    width:100%;
+    line-height: 32px;
+    font-size: 14px;
+    text-align: center;
+    color:#999;
+    margin-bottom: 20px;
+}
+.user-name,.user-pwd{
+    width:100%;
+    margin:10px 0px;
+    display: flex;
+    justify-content: flex-start;
+}
+.user-name>input.error{
+    animation:myerror 0.3s ease-out forwards;
+}
+.user-pwd>input.error{
+    animation:myerror 0.3s ease-out forwards;
+}
+.user-name>input,.user-pwd>input{
+    display: inline-block;
+    background: #fff;
+    width:100%;
+    padding:10px 15px;
+    font-size: 16px;
+    color:#666;
+    box-sizing: border-box;
+    outline:none;
+    line-height: 40px;
+    height:40px;
+    border:1px solid #eee;
+    /* box-shadow: 0px 1px 2px rgba(0,0,0,.15); */
+    border-radius: 3px;
+}
+.login-btn{
+    width:100%;
+    height:46px;
+    line-height: 46px;
+    text-align: center;
+    font-size: 15px;
+    color:#fff;
+    background: #be1d2c;
+    margin-top:12px;
+    cursor: pointer;
+    border-radius: 5px;
+    border:1px solid #9f1421;
+}
+.login-btn:active{
+    background: #be1d2c;
+    opacity: .9;
+}
+.stayIn{
+    width:100%;
+    line-height: 30px;
+    height:30px;
+    text-align: left;
+    color:#999;
+    font-size: 14px;
+}
+.stayIn>label{
+    display: inline-block;
+    line-height: 20px;
+    text-align: right;
+    color:#999;
+    font-size: 15px;
+    vertical-align: middle;
+}
+.stayIn>span{
+    display: inline-block;
+    width:20px;
+    height:20px;
+    border:2px solid #ccc;
+    box-sizing: border-box;
+    vertical-align: middle;
+    margin:2px;
+    margin-right:8px;
+    cursor: pointer;
+    font-size: 12px;
+    line-height: 18px;
+    text-align: center;
+    color:#fff;
+    border-radius: 3px;
+    vertical-align: middle;
+}
+.stayIn>span.stayActive{
+    background: #be1d2c;
+    border: 1px solid #be1d2c;
+}
+.reg-close{
+    position: absolute;
+    top:24px;
+    left:24px;
+    font-size: 26px;
+    color:#ccc;
+    font-weight: normal;
+    cursor: pointer;
+}
+.auto-login{
+    position: absolute;
+    bottom:-52px;
+    left:50%;
+    width:300px;
+    margin-left:-150px;
+    background: #fff;
+    box-shadow: 0px 3px 6px rgba(0,0,0,.15);
+    border-radius: 25px;
+    line-height: 50px;
+    padding-left:30px;
+    border:1px solid #eee;
+    font-size: 16px;
+    color:#777;
+    transition: all .5s;
+    z-index: 300;
+}
+.auto-login.show{
+    bottom:30px;
+}
+.auto-login>span{
+    display: inline-block;
+    width:30px;
+    height:30px;
+    font-size: 18px;
+    color:#666;
+    vertical-align: middle;
+    text-align: center;
+    line-height: 30px;
+    margin:0px 5px;
+    cursor: pointer;
+}
+.auto-login>span:first-child{
+    color: darkgreen;
+    margin-left:20px;
+}
+@keyframes myerror
+{
+    0% {border:2px solid #fc291a;}
+    25% {border:1px solid #fff;}
+    50% {border:2px solid #fc291a;}
+    75% {border:1px solid #fff;}
+    100% {border:2px solid #fc291a;}
+}
+.copy-right{
+    width:100%;
+    line-height: 50px;
+    position: absolute;
+    bottom: 0px;
+    left:0px;
+    font-size: 16px;
+    color:#75bbd9;
+    text-align: center;
+    z-index: 10;
+}
+@media screen and (max-width:640px){
+    .login-content{
+        width:100%;
+        max-width: 1000px;
+        height:100%;
+        z-index: 20;
+        background: #fff;
+        margin:0 auto;
+        margin-top:0px;
+        display: flex;
+        justify-content: flex-start;
+        border-radius: 0px;
+    }
+    .login-content>.login-img{
+        display: none;
+    }
+}

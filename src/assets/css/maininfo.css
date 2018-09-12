@@ -1,0 +1,137 @@
+
+.main-banner{
+    height:400px;
+    overflow: hidden;
+    position: relative;
+    /* box-shadow:0 2px 6px rgba(0, 0, 0, 0.08); */
+}
+.slide-box{
+    height:100%;
+    display: flex;
+    justify-content: flex-start;
+    position: relative;
+    /* transition: all .6s; */
+}
+.slide-box>li{
+    height:100%;
+}
+.slide-box>li>img{
+    width:100%;
+    height:100%;
+}
+.slide-sign{
+    position: absolute;
+    z-index: 50;
+    bottom:10px;
+    right:10px;
+    display: flex;
+    justify-content: space-between;
+}
+.slide-sign>li{
+    width:10px;
+    height:10px;
+    margin:5px;
+    background: #fff;
+    opacity: 0.5;
+}
+.slide-sign>li.active{
+    opacity: 0.8;
+}
+.user-info-box{
+    width:400px;
+    box-shadow:0 2px 6px rgba(0, 0, 0, 0.08);
+    background: #fff;
+    padding-bottom:20px;
+}
+.user-info-box .main-avatar{
+    width:100%;
+    padding:20px 0px;
+}
+.user-info-box .main-avatar>img{
+    width:100px;
+    height:100px;
+    border-radius: 50%;
+    border:1px solid #eee;
+    display: block;
+    margin:0px auto;
+}
+.user-info-box .user-name{
+    width:100%;
+    text-align: center;
+    line-height: 36px;
+    color:#777;
+    font-size: 16px;
+    display: inline-block;
+}
+.notice-web-box{
+    margin-left:20px;
+    width:calc(100% - 420px);
+    box-shadow:0 2px 6px rgba(0, 0, 0, 0.08);
+    background: #fff;
+}
+.scroll-box{
+    width:100%;
+    display: flex;
+    justify-content: space-between;
+    box-shadow:0 2px 6px rgba(0, 0, 0, 0.08);
+    margin-bottom: 20px;
+}
+.scroll-box>div{
+    width:80px;
+    height:100%;
+    font-size: 14px;
+    background: #be1d2c;
+    color:#fff;
+    line-height: 50px;
+    text-align: center;
+}
+.scroll-content{
+    width:100%;
+    background: #fff;
+}
+.scroll-content>span{
+    color:#777;
+    line-height: 50px;
+}
+.main-pay-detail{
+    width:100%;
+    padding:20px;
+    text-align: center;
+    display: inline-block;
+    color:#777;
+    font-size: 14px;
+    position: relative;
+}
+.main-pay-detail>span{
+    font-size: 14px;
+    color:#be1d2c;
+}
+.main-pay-detail>span.pay-btn{
+    position: absolute;
+    top:14px;
+    right:50px;
+    line-height: 24px;
+    width:50px;
+    border:1px solid #DCE6EB;
+    color:#666;
+    cursor: pointer;
+    text-align: center;
+}
+.main-pay-detail>span.pay-btn:hover{
+    background: #be1d2c;
+    color:#fff;
+    border:1px solid transparent;
+}
+@media screen and (max-width:640px){
+    .main-banner{
+        height:130px;
+    }
+    .user-info-box{
+        width:100%;
+        margin-bottom:20px;
+    }
+    .notice-web-box{
+        width:100%;
+        margin-left: 0px;
+    }
+}

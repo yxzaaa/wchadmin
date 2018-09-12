@@ -1,0 +1,160 @@
+.center-tab{
+    width:100%;
+    display: flex;
+    justify-content: flex-start;
+}
+.center-tab>li{
+    width:50%;
+    line-height: 50px;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+    color: #777;
+    cursor: pointer;
+}
+.center-tab>li.active{
+    background: #fafafa;
+    color:#be1d2c;
+    border-top:2px solid #be1d2c;
+}
+.center-item-box{
+    background: #fafafa;
+    padding: 20px;
+}
+.name-box>h3{
+    font-size: 32px;
+    color:#aaa;
+    line-height: 42px;
+}
+.name-box>div{
+    font-size:14px;color:#777;line-height:22px;
+}
+.name-box>div>span{
+    font-size:14px;color:#be1d2c;line-height:22px;display:inline-block;margin-left:5px;cursor: pointer;
+}
+.name-pay{
+    width:100%;
+    background: #fff;
+    display: flex;
+    justify-content: space-between;
+    border:1px solid #eee;
+    margin-bottom:20px;
+    flex-wrap: wrap;
+}
+.name-pay:last-child{
+    margin-bottom: 0px;
+}
+.name-pay>.name-box{
+    width:300px;
+    padding:20px;
+}
+.name-pay>.pay-box{
+    width:calc(100% - 300px);
+    display: flex;
+    justify-content: flex-start;
+}
+.pay-box>.pay-item{
+    width:50%;
+    border-left:1px solid #eee;
+}
+.pay-box>.pay-item>.main-pay-detail{
+    text-align: left;
+    padding:24px;
+    position: relative;
+}
+.pay-box>.pay-item>.main-pay-detail>.pay-btn{
+    top:18px;
+    right:20px;
+}
+.panel-title>.is-bind{
+    position: absolute;
+    top:0px;
+    right:86px;
+}
+.name-pay>.pay-card-box{
+    width:100%;
+}
+.pay-card-box>li.set-item{
+    display: flex;
+    justify-content: space-between;
+    padding:20px;
+}
+.name-pay>.pay-card-box span{
+    display: inline-block;
+}
+.name-pay>.pay-card-box .bank{
+    font-size: 16px;
+    line-height: 30px;
+    color:#777;
+    padding-right:10px;
+}
+.name-pay>.pay-card-box .card-num{
+    font-size: 18px;
+    color:#be1d2c;
+    font-weight: bold;
+    padding-right:10px;
+}
+.set-item-left{
+    width:calc(100% - 50px);
+    display: flex;
+    justify-content: flex-start;
+    padding-right:10px;
+}
+.set-item-left>span{
+    width:80px;
+    height:50px;
+    font-size: 32px;
+    color:#be1d2c;
+    line-height: 50px;
+    display: inline-block;
+    text-align: center;
+    padding:0px 20px;
+}
+.set-item-left>div{
+    display: inline-block;
+    vertical-align: middle;
+    overflow: hidden;
+}
+.set-item-left>div>h5{
+    font-size: 20px;
+    color:#999;
+    line-height: 32px;
+
+}
+.set-item-left>div>p{
+    font-size: 14px;
+    color:#777;
+    line-height: 32px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.set-item-right{
+    width:50px;
+    height:28px;
+    line-height: 28px;
+    border:1px solid #DCE6EB;
+    font-size: 14px;
+    color:#777;
+    text-align: center;
+    margin:18px 0px;
+    cursor: pointer;
+}
+.set-item-right:hover{
+    background: #be1d2c;
+    color:#fff;
+    border:1px solid transparent;
+}
+.add-card{
+    font-size: 18px !important;
+    cursor: pointer;
+}
+@media screen and (max-width:640px){
+    .name-pay>.name-box{
+        width:100%;
+        border-bottom:1px solid #eee;
+    }
+    .name-pay>ul.pay-box{
+        width:100%;
+    }
+}
