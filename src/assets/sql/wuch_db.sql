@@ -95,5 +95,5 @@ create table news(
 	usrid varchar(64) not null,
 	usrname varchar(64) not null,
 	new varchar(256) not null,
-	currtime varchar(64) not null
+	newstate boolean not null
 );
