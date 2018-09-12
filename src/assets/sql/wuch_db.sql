@@ -47,6 +47,7 @@ create table pagekind(
 insert into pagekind values
 	(null,'彩种管理',0,'','','','','','icon-home','pageadmin',0,0,1),
 	(null,'用户管理',0,'','','','','','icon-home','useradmin',0,0,1),
+	(null,'充值/提现',0,'','','','','','icon-home','payadmin',0,0,1),
 	(null,'首页',0,'','','','','','icon-home','maininfo',0,0,0),
 	(null,'重庆时时彩',600,'','','','','','icon-fire','chongqing',1,0,0),
 	(null,'北京赛车',300,'','','','','','icon-fire','beijing',1,0,0),
@@ -91,6 +92,8 @@ create table userpagehis(
 -- 信息公告
 create table news(
 	nid int primary key auto_increment,
+	usrid varchar(64) not null,
+	usrname varchar(64) not null,
 	new varchar(256) not null,
-	currtime DATETIME not null
+	currtime varchar(64) not null
 );
