@@ -2,7 +2,10 @@
     <div class='active-box page-box'>
         <div class='top-message panel-box panel'>
             <div class='page-logo'>
-                <img src="../assets/images/avatar.png" alt="">
+                <div class='page-name'>
+                    <img src="../assets/images/page.png" alt="">
+                    <span>{{pageName}}</span>
+                </div>
                 <div class='page-time'>
                     <p>第<span>{{expect}}</span>期</p>
                     <p>投注倒计时</p>
@@ -621,13 +624,13 @@ export default {
                         }
                     }
                     if(i != pagenums.length - 1){
-                        str += ' | ';
+                        str += '|';
                     }
                 }
             }else if(kind == 2){
                 for(var i=0;i<pagenums.length;i++){
                     if(i<pagenums.length-1){
-                        str += pagenums[i]+' | ';
+                        str += pagenums[i]+'|';
                     }else{
                         str += pagenums[i];
                     }

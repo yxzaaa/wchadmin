@@ -59,12 +59,12 @@
 }
 .pay-box>.pay-item>.main-pay-detail{
     text-align: left;
-    padding:24px;
+    padding:24px 12px;;
     position: relative;
 }
 .pay-box>.pay-item>.main-pay-detail>.pay-btn{
     top:18px;
-    right:20px;
+    right:10px;
 }
 .panel-title>.is-bind{
     position: absolute;

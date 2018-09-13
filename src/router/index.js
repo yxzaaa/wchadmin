@@ -11,6 +11,7 @@ import BeiJing from '@/components/BeiJing'
 import ChongQing from '@/components/ChongQing'
 import PageAdmin from '@/components/PageAdmin'
 import UserAdmin from '@/components/UserAdmin'
+import PayAdmin from '@/components/PayAdmin'
 
 Vue.use(Router)
 Vue.use(Resource)
@@ -52,6 +53,10 @@ export default new Router({
         {
           path:'/useradmin',
           component:UserAdmin
+        },
+        {
+          path:'/payadmin',
+          component:PayAdmin
         }
       ]
     },
@@ -90,6 +95,10 @@ export default new Router({
         {
           path:'/useradmin',
           component:UserAdmin
+        },
+        {
+          path:'/payadmin',
+          component:PayAdmin
         }
       ]
     },

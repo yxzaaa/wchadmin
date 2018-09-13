@@ -20,8 +20,8 @@
             <h3 class='panel-title'>热门彩种</h3>
             <ul>
                 <li v-for='(item,index) in navList' :key='index' @click='jump(index)'>
-                    <!-- <img src="" alt=""> -->
-                    <span :class="['icon',item.icon]"></span>
+                    <img src="../assets/images/page.png" alt="">
+                    <!-- <span :class="['icon',item.icon]"></span> -->
                     <p>{{item.title}}</p>
                 </li>
             </ul>

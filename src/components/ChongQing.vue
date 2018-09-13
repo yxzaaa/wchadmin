@@ -2,7 +2,10 @@
     <div class='active-box page-box'>
         <div class='top-message panel-box panel'>
             <div class='page-logo'>
-                <img src="../assets/images/page1.png" alt="">
+                <div class='page-name'>
+                    <img src="../assets/images/page.png" alt="">
+                    <span>{{pageName}}</span>
+                </div>
                 <div class='page-time'>
                     <p>第<span>20180324</span>期</p>
                     <p>投注倒计时</p>

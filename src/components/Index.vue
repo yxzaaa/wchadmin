@@ -7,18 +7,18 @@
             <div class='app-name'>{{appName}}&nbsp;&nbsp;<span>&nbsp;{{comName}}</span></div>
             <div class='user-tools'>
                 <div class='notice-tool'>
-                    <div :class="['tool-items',{'active':notice}]" @click="toggleNotice">
+                    <!-- <div :class="['tool-items',{'active':notice}]" @click="toggleNotice">
                         <span class='icon icon-comment-alt'></span>
                         <span class='notice-count'>2</span>
-                    </div>
+                    </div> -->
                     <div :class="['notice-item',{'show':hasNotice}]">
                         <p>{{noticeInfo}}</p>
                         <span v-if="hasNotice"></span>
                     </div>
-                    <ul class='tool-list' v-if='notice'>
+                    <!-- <ul class='tool-list' v-if='notice'>
                         <li @click="showNotice('已读信息已读信息已读信息已读信息已读信息已读信息')"><a><span class='notice-yes icon icon-circle'></span>已读信息已读信息已读信息</a></li>
                         <li><a href=""><span class='notice-no icon icon-circle'></span>未读信息未读信息未读信息</a></li>
-                    </ul>
+                    </ul> -->
                 </div>
                 <div class='help-tool'>
                     <div :class="['tool-items',{'active':help}]" @click="toggleHelp">
@@ -38,9 +38,9 @@
                         <span class='icon icon-angle-down sm-hide'></span>
                     </div>
                     <ul class='tool-list' v-if='user'>
-                        <li @click='toIndex()' style='display:none;' class='sm-show'><a>首页</a></li>
-                        <li @click='toAccount()'><a>账户中心</a></li>
-                        <li @click='toAccount()'><a>订单中心</a></li>
+                        <li @click='toIndex()' style='display:none;' class='sm-show' v-if='uKind == 0'><a>首页</a></li>
+                        <li @click='toAccount()' v-if='uKind == 0'><a>账户中心</a></li>
+                        <li @click='toAccount()' v-if='uKind == 0'><a>订单中心</a></li>
                         <li @click='offSys()'><a href="">登出</a></li>
                     </ul>
                 </div>
@@ -90,7 +90,8 @@ export default {
             navList:[],
             userName:'未登录',
             uid:0,
-            uKind:0,
+            userid:0,
+            uKind:1,
             slideToggle:false,
             setToggle:false,
             notice:false,
@@ -109,9 +110,12 @@ export default {
                 }
                 this.userName = res.body.uname;
                 this.uid = res.body.uid;
+                this.userid = localStorage.getItem('userid');
                 this.uKind = res.body.ukind;
                 if(this.uKind == 1){
-                    this.comName = '后台管理平台';
+                    this.comName = '后台管理';
+                }else if(this.uKind == 0){
+                    this.getNews();
                 }
                 this.$http.post('http://lgkj.chuangkegf.com/wuchuang/pagekind.php',{
                     kind:'gettab',
@@ -147,8 +151,9 @@ export default {
         },(err)=>{
             console.log(err);
         })
+        /////
         if(this.uKind == 1){
-            this.appName = '后台管理平台';
+            this.appName = '后台管理';
         }
         this.$http.post('http://lgkj.chuangkegf.com/wuchuang/pagekind.php',{
             kind:'gettab',
@@ -180,14 +185,19 @@ export default {
         },(err)=>{
             console.log(err);
         })
-        var username = localStorage.getItem('uname');
-        var userid = localStorage.getItem('userid');
-        this.userName = username;
-        var timer = setInterval(()=>{
+        this.userName = localStorage.getItem('uname');
+        this.userid = localStorage.getItem('userid');
+        if(this.uKind == 0){
+            this.getNews();
+        }
+        /////
+    },
+    methods:{
+        getNews(){
             this.$http.post('http://lgkj.chuangkegf.com/wuchuang/userinfo.php',{
                 kind:'getnews',
-                userid:userid,
-                username:username
+                userid:this.userid,
+                username:this.userName
             },{emulateJSON:true}).then((res)=>{
                 if(res.body.code == 200){
                     this.showNotice(res.body.data[0]+'，详情到订单中心查看');
@@ -195,14 +205,17 @@ export default {
                     this.$http.post('http://lgkj.chuangkegf.com/wuchuang/userinfo.php',{
                         kind:'setnew',
                         nid:nid
-                    },{emulateJSON:true}).then((res)=>{})
+                    },{emulateJSON:true}).then((res)=>{
+                        this.getNews();
+                    })
+                }else{
+                    console.log('no news');
+                    this.getNews();
                 }
             },(err)=>{
                 console.log(err);
             })
-        },10000);
-    },
-    methods:{
+        },
         toIndex(){
             this.$router.push({path:'/index'});
             this.notice = false;
