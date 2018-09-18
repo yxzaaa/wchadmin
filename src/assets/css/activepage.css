@@ -18,7 +18,7 @@
     width:70px;
     height:70px;
     display: inline-block;
-    margin:20px 30px 0px;
+    margin:15px 30px 5px;
     vertical-align: middle;
 }
 .page-logo>.page-name>span{
@@ -43,7 +43,7 @@
     line-height: 24px;
 }
 .page-logo>.page-time>p:first-child>span{
-    color:#be1d2c;
+    color:#d81e06;
     font-size: 18px;
     display: inline-block;
     padding:0px 5px;
@@ -87,7 +87,7 @@
     line-height: 24px;
 }
 .top-message>.page-num>p>span{
-    color:#be1d2c;
+    color:#d81e06;
     font-size: 18px;
     display: inline-block;
     padding:0px 5px;
@@ -101,7 +101,7 @@
 }
 .top-message>.page-num>.time-box>span{
     display: inline-block;
-    background: #be1d2c;
+    background: #d81e06;
     color:#fff;
     border-radius: 50%;
     width:44px;
@@ -115,7 +115,7 @@
 }
 .top-message>.page-num>.time-box.beijing>span{
     display: inline-block;
-    background: #be1d2c;
+    background: #d81e06;
     color:#fff;
     border-radius: 50%;
     width:28px;
@@ -140,7 +140,7 @@
     line-height: 24px;
 }
 .top-message>.page-his>p>span{
-    color:#be1d2c;
+    color:#d81e06;
     font-size: 14px;
     padding:0px 5px;
     float:right;
@@ -159,16 +159,17 @@
 }
 .top-message>.page-his>.time-box>li>span{
     float: right;
-    color: #be1d2c;
+    color: #d81e06;
 }
 .page-content{
     width:calc(100% - 270px);
+    min-width: 660px;
 }
 .user-content{
     width:250px;
     margin-left:20px;
     min-height: 220px;
-    max-height: 400px;
+    /* max-height: 400px; */
 }
 .user-list-box{
     width:100%;
@@ -187,7 +188,7 @@
 }
 .user-list>li>span{
     float: right;
-    color:#be1d2c;
+    color:#d81e06;
 }
 .play-rule{
     width:100%;
@@ -209,7 +210,7 @@
 .play-rule>div>p>span{
     line-height: 24px;
     font-size: 13px;
-    color:#be1d2c;
+    color:#d81e06;
     display: inline-block;
     margin-right:5px;
 }
@@ -259,9 +260,11 @@
     margin-right:5px;
 }
 .choose-box>.choose-list>li>div:first-child{
-    background: #be1d2c;
+    background: #d81e06;
     text-align: center;
     padding:0px 10px;
+    border-bottom-right-radius: 12px;
+    border-top-left-radius: 12px;
 }
 .choose-box>.choose-list>li>div:nth-child(2)>span{
     background: #777;
@@ -329,7 +332,7 @@
 }
 .choose-box>.choose-add-box>div:last-child{
     width:100%;
-    background: #be1d2c;
+    background: #d81e06;
     color:#fff;
     font-size: 14px;
     text-align: center;
@@ -385,7 +388,7 @@
     vertical-align: middle;
 }
 .choose-res-list>.res-box>.res-list>li>div:last-child>span:last-child{
-    color:#be1d2c;
+    color:#d81e06;
     margin-left: 10px;
     cursor: pointer;
 }
@@ -398,11 +401,11 @@
 }
 .confirm-choose>div>span{
     float: right;
-    color:#be1d2c;
+    color:#d81e06;
 }
 .confirm-choose>div:last-child{
     color:#fff;
-    background: #be1d2c;
+    background: #d81e06;
     text-align: center;
     margin:10px;
     width:calc(100% - 20px);
@@ -412,10 +415,10 @@
     background: #777 !important;
 }
 .choose-list>li span.active{
-    background: #be1d2c !important;
+    background: #d81e06 !important;
 }
 .choose-add-box>div>span.active{
-    background: #be1d2c !important;
+    background: #d81e06 !important;
     color:#fff;
     border:1px solid transparent !important;
 }
@@ -454,6 +457,7 @@
     }
     .page-content{
         width:100%;
+        min-width: 0px;
         margin-bottom: 0px;
     }
     .choose-box>.choose-list{
@@ -470,6 +474,27 @@
         font-size: 13px;
         color:#fff;
         margin-bottom:10px;
+    }
+    .choose-box>.choose-list>li>div:first-child{
+        background: transparent;
+        text-align: center;
+        padding:0px;
+        /* border-bottom:1px solid #eee; */
+        color:#d81e06;
+        font-weight: bold;
+        font-size: 14px;
+    }
+    .choose-box>.choose-list>li>div:nth-child(3)>span{
+        background: #fff;
+        border:1px solid #ccc;
+        text-align: center;
+        width:40px;
+        height:40px;
+        border-radius: 50%;
+        cursor: pointer;
+        line-height: 40px;
+        margin:2px 4px;
+        color:#777;
     }
     .choose-box>.choose-add-box>div{
         width:100% !important;

@@ -66,7 +66,7 @@ table {
 	/*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/   
 	::-webkit-scrollbar   
 	{   
-	width: 6px;   
+	width: 0px;   
 	height: 10px;   
 	background-color: #fff;   
 	}   
@@ -120,4 +120,8 @@ input:-moz-placeholder{    /* Mozilla Firefox 4 to 18 */
 input:-ms-input-placeholder{  /* Internet Explorer 10-11 */ 
 	color:#aaa;
 
+}
+input:focus{
+	outline: none;
+	border:1px solid #d81e06 !important;
 }

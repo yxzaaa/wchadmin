@@ -1,6 +1,22 @@
 <template>
     <!--主页面-->
     <div class='index-box'>
+        <!-- <audio src="../assets/audio/"></audio> -->
+        <div :class="['notice-item',{'show':hasNotice}]">
+            <p>{{noticeInfo}}</p>
+            <span v-if="hasNotice"></span>
+        </div>
+        <div class='price-modal' v-if='getPrice'>
+            <div class='get-price'>
+                <img src="../assets/images/getprice.png" alt="">
+                <div>
+                    <p>您购买的<span>{{getName}}</span></p>
+                    <p>第<span>{{getExpect}}</span>期</p>
+                    <p>收益<span>{{getPay}}元</span></p>
+                </div>
+                <div class='cbtn'><span class='icon icon-ok' @click='closePrice()'></span></div>
+            </div>
+        </div>
         <div :class="['toggle-icon',{'show':showNav}]" @click="navShow()"><span class='icon icon-align-left '></span></div>
         <div class='index-nav'>
             <div class='logo'><img src="../assets/images/logo.png" alt="" /></div>
@@ -11,10 +27,6 @@
                         <span class='icon icon-comment-alt'></span>
                         <span class='notice-count'>2</span>
                     </div> -->
-                    <div :class="['notice-item',{'show':hasNotice}]">
-                        <p>{{noticeInfo}}</p>
-                        <span v-if="hasNotice"></span>
-                    </div>
                     <!-- <ul class='tool-list' v-if='notice'>
                         <li @click="showNotice('已读信息已读信息已读信息已读信息已读信息已读信息')"><a><span class='notice-yes icon icon-circle'></span>已读信息已读信息已读信息</a></li>
                         <li><a href=""><span class='notice-no icon icon-circle'></span>未读信息未读信息未读信息</a></li>
@@ -38,9 +50,9 @@
                         <span class='icon icon-angle-down sm-hide'></span>
                     </div>
                     <ul class='tool-list' v-if='user'>
-                        <li @click='toIndex()' style='display:none;' class='sm-show' v-if='uKind == 0'><a>首页</a></li>
-                        <li @click='toAccount()' v-if='uKind == 0'><a>账户中心</a></li>
-                        <li @click='toAccount()' v-if='uKind == 0'><a>订单中心</a></li>
+                        <li @click='toIndex()' style='display:none;' class='sm-show'><a>首页</a></li>
+                        <li @click='toAccount(1)'><a>账户中心</a></li>
+                        <li @click='toAccount(2)'><a>订单中心</a></li>
                         <li @click='offSys()'><a href="">登出</a></li>
                     </ul>
                 </div>
@@ -48,10 +60,10 @@
         </div>
         <div class='index-content'>
             <div :class="['left-nav',{'show':showNav}]">
-                <div class='touser-center' v-if='uKind == 0'>
-                    <div @click='toAccount()' class='mybtn'><span class='icon icon-gift'></span>充值</div>
-                    <div @click='toAccount()' class='mybtn'><span class='icon icon-gift'></span>提现</div>
-                </div>
+                <!-- <div class='touser-center'>
+                    <div @click='toAccount(1)' class='mybtn'><span class='icon icon-tasks'></span>充值</div>
+                    <div @click='toAccount(1)' class='mybtn'><span class='icon icon-briefcase'></span>提现</div>
+                </div> -->
                 <div class='nav-list-box'>
                     <ul>
                         <li :class='{active:item.isActive}' v-for='(item,index) in navList' :key='index' @click="changePage(index,item.path)">
@@ -59,9 +71,6 @@
                         </li>
                     </ul>
                 </div>
-                <!-- <div class='nav-toggle' @click='slide()'>
-                    <span :class="['icon-arrow-left',{'icon-arrow-right':slideToggle}]"></span>
-                </div> -->
             </div>
             <div class='left-nav-line'>
                 <ul>
@@ -71,7 +80,7 @@
                 </ul>
             </div>
             <div :class="['right-content',{'slide-left':slideToggle},{'set-toggle':setToggle}]">
-                <router-view @getNum='rcvMsg' @showNotice='showNotice'></router-view>
+                <router-view @getNum='rcvMsg' @showNotice='showNotice' @changeName='changeName'></router-view>
             </div>
         </div>
     </div>
@@ -91,19 +100,23 @@ export default {
             userName:'未登录',
             uid:0,
             userid:0,
-            uKind:1,
+            timeout:null,
             slideToggle:false,
             setToggle:false,
             notice:false,
             help:false,
             user:false,
-            showNav:false
+            showNav:false,
+            getName:'',
+            getPay:0,
+            getExpect:'',
+            getPrice:false
         }
     },
     mounted(){
         this.$http.get('http://lgkj.chuangkegf.com/wuchuang/check.php').then((res)=>{
             if(res.body.code == 400){
-                //this.$router.replace('/login');
+                // this.$router.replace('/login');
             }else if(res.body.code == 200){
                 if(!sessionStorage.getItem('login')){
                     sessionStorage.setItem('login',true);
@@ -111,15 +124,10 @@ export default {
                 this.userName = res.body.uname;
                 this.uid = res.body.uid;
                 this.userid = localStorage.getItem('userid');
-                this.uKind = res.body.ukind;
-                if(this.uKind == 1){
-                    this.comName = '后台管理';
-                }else if(this.uKind == 0){
-                    this.getNews();
-                }
+                this.getNews();
                 this.$http.post('http://lgkj.chuangkegf.com/wuchuang/pagekind.php',{
                     kind:'gettab',
-                    userkind:this.uKind
+                    userkind:0
                 },{emulateJSON:true}).then((res)=>{
                     if(res.body.code == 200){
                         var that = this;
@@ -151,13 +159,10 @@ export default {
         },(err)=>{
             console.log(err);
         })
-        /////
-        if(this.uKind == 1){
-            this.appName = '后台管理';
-        }
+        //
         this.$http.post('http://lgkj.chuangkegf.com/wuchuang/pagekind.php',{
             kind:'gettab',
-            userkind:this.uKind
+            userkind:1
         },{emulateJSON:true}).then((res)=>{
             if(res.body.code == 200){
                 var that = this;
@@ -187,34 +192,54 @@ export default {
         })
         this.userName = localStorage.getItem('uname');
         this.userid = localStorage.getItem('userid');
-        if(this.uKind == 0){
-            this.getNews();
-        }
-        /////
+        this.getNews();
+        //
     },
     methods:{
+        showGetPrice(msg){
+            console.log(msg);
+            this.getPrice = true;
+            this.getName = msg[2];
+            this.getPay = msg[4];
+            this.getExpect = msg[3];
+        },
+        closePrice(){
+            this.getPrice = false;
+        },
+        changeName(msg){
+            this.userName = msg;
+        },
         getNews(){
-            this.$http.post('http://lgkj.chuangkegf.com/wuchuang/userinfo.php',{
-                kind:'getnews',
-                userid:this.userid,
-                username:this.userName
-            },{emulateJSON:true}).then((res)=>{
-                if(res.body.code == 200){
-                    this.showNotice(res.body.data[0]+'，详情到订单中心查看');
-                    var nid = res.body.data[1];
-                    this.$http.post('http://lgkj.chuangkegf.com/wuchuang/userinfo.php',{
-                        kind:'setnew',
-                        nid:nid
-                    },{emulateJSON:true}).then((res)=>{
-                        this.getNews();
-                    })
-                }else{
-                    console.log('no news');
+            if(this.getPrice == false){
+                this.$http.post('http://lgkj.chuangkegf.com/wuchuang/userinfo.php',{
+                    kind:'getnews',
+                    userid:this.userid,
+                    username:this.userName
+                },{emulateJSON:true}).then((res)=>{
+                    if(res.body.code == 200){
+                        this.showGetPrice(res.body.data);
+                        var nid = res.body.data[1];
+                        this.$http.post('http://lgkj.chuangkegf.com/wuchuang/userinfo.php',{
+                            kind:'setnew',
+                            nid:nid
+                        },{emulateJSON:true}).then((res)=>{
+                            setTimeout(()=>{
+                                this.getNews();
+                            },1000)
+                        })
+                    }else{
+                        console.log('no news');
+                        setTimeout(()=>{
+                            this.getNews();
+                        },1000)
+                    }
+                })
+            }else{
+                console.log('showing modal');
+                setTimeout(()=>{
                     this.getNews();
-                }
-            },(err)=>{
-                console.log(err);
-            })
+                },1000)
+            }
         },
         toIndex(){
             this.$router.push({path:'/index'});
@@ -223,14 +248,20 @@ export default {
             this.user = false;
         },
         showNotice(msg){
+            clearTimeout(this.timeout);
             this.noticeInfo = msg;
             this.hasNotice = true;
-            setTimeout(()=>{
+            this.timeout = setTimeout(()=>{
                 this.hasNotice = false;
             },5000);
         },
-        toAccount(){
-            this.$router.push({path:'/account'});
+        toAccount(index){
+            this.$router.push({
+                path:'/account',
+                query:{
+                    tab:index
+                }
+            });
             this.notice = false;
             this.help = false;
             this.user = false;

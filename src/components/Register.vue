@@ -76,7 +76,7 @@ export default {
             }
         },
         register(){
-            if(this.userName.length>=3 && this.userPwd >=6 && this.userPwd === this.confirmPwd){
+            if(this.userName.length>=3 && this.userPwd.length >=6 && this.userPwd === this.confirmPwd){
                 this.$http.post('http://lgkj.chuangkegf.com/wuchuang/register.php',
                 {
                     uname:this.userName,
