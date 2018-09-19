@@ -6,7 +6,7 @@
             <p>{{noticeInfo}}</p>
             <span v-if="hasNotice"></span>
         </div>
-        <div class='price-modal' v-if='getPrice'>
+        <!-- <div class='price-modal' v-if='getPrice'>
             <div class='get-price'>
                 <img src="../assets/images/getprice.png" alt="">
                 <div>
@@ -16,7 +16,7 @@
                 </div>
                 <div class='cbtn'><span class='icon icon-ok' @click='closePrice()'></span></div>
             </div>
-        </div>
+        </div> -->
         <div :class="['toggle-icon',{'show':showNav}]" @click="navShow()"><span class='icon icon-align-left '></span></div>
         <div class='index-nav'>
             <div class='logo'><img src="../assets/images/logo.png" alt="" /></div>
