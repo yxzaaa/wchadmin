@@ -47,14 +47,14 @@
                     <div :class="['tool-items',{'active':user}]" @click="toggleUser">
                         <img src="../assets/images/avatar.png" alt="">
                         <span class='show-text sm-hide'>{{userName}}</span>
-                        <span class='icon icon-angle-down sm-hide'></span>
+                        <!-- <span class='icon icon-angle-down sm-hide'></span> -->
                     </div>
-                    <ul class='tool-list' v-if='user'>
+                    <!-- <ul class='tool-list' v-if='user'>
                         <li @click='toIndex()' style='display:none;' class='sm-show'><a>首页</a></li>
                         <li @click='toAccount(1)'><a>账户中心</a></li>
                         <li @click='toAccount(2)'><a>订单中心</a></li>
                         <li @click='offSys()'><a href="">登出</a></li>
-                    </ul>
+                    </ul> -->
                 </div>
             </div>
         </div>
@@ -90,7 +90,7 @@ export default {
     data () {
         return {
             logo:'../assets/images/logo.png',
-            appName: '',
+            appName: '后台管理',
             comName:'',
             isAreaHide:true,
             currArea:'选择大区',
@@ -228,14 +228,12 @@ export default {
                             },1000)
                         })
                     }else{
-                        console.log('no news');
                         setTimeout(()=>{
                             this.getNews();
                         },1000)
                     }
                 })
             }else{
-                console.log('showing modal');
                 setTimeout(()=>{
                     this.getNews();
                 },1000)

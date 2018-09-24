@@ -32,7 +32,7 @@ export default {
             hasError:false,
             copyRight:'',
             stay:false,
-            prjid:3
+            prjid:4
         }
     },
     mounted(){

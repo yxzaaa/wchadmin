@@ -122,6 +122,7 @@ export default {
                 console.log(this.currPageData.expect);
                 console.log(this.currPageData.pid);
                 console.log(this.currOpenCode);
+                this.currOpenCode = this.currOpenCode.split(/[,; ，；]/).join(',');
                 this.$http.post('http://lgkj.chuangkegf.com/wuchuang/pagekind.php',{
                     kind:'changecode',
                     pid:this.currPageData.pid,
