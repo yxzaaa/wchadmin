@@ -154,7 +154,7 @@
     top:24px;
     right:8px;
     color:#fff;
-    background: #d81e06;
+    background: #C1343D;
     width: 20px;
     height:20px;
     display: inline-block;
@@ -182,7 +182,7 @@
     right:0px;
     width:200px;
     background: #fff;
-    border-top:2px solid #ACB0B5;
+    border-top:2px solid #1F363D;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
     z-index: 100;
 }
@@ -192,7 +192,8 @@
     cursor: pointer;
 }
 .tool-list>li:hover{
-    background: #fafafa;
+    background: #087E8B;
+    color:#fafafa;
 }
 .tool-list>li>a{
     display: block;
@@ -214,7 +215,7 @@
     color:#009944;
 }
 .tool-list>li>a>span.notice-no{
-    color:#d81e06;
+    color:#C1343D;
 }
 .user-set{
     width:0px;
@@ -279,14 +280,14 @@
 .left-nav{
     width:260px;
     height:100%;
-    background:#2B333E;
+    background:#221D23;
     position: relative;
 }
 .touser-center{
     width:100%;
     display: flex;
     justify-content: flex-start;
-    border-bottom:1px solid #252c35;
+    border-bottom:1px solid #1F363D;
     box-shadow: 0px 3px 5px rgba(0,0,0,.1);
 }
 .touser-center>div{
@@ -298,11 +299,11 @@
     cursor: pointer;
 }
 .touser-center>div:first-child{
-    border-right:1px solid #252c35;
+    border-right:1px solid #1F363D;
 }
 .touser-center>div>span{
     font-size: 18px;
-    color:#d81e06;
+    color:#087E8B;
     display: inline-block;
     padding-right:10px;
     vertical-align: middle;
@@ -314,7 +315,7 @@
 .right-content{
     width:calc(100% - 260px);
     height:100%;
-    background: #f5f5fa;
+    background: #fafafa;
     overflow-y: auto;
     position: relative;
 }
@@ -328,7 +329,7 @@
     height:58px;
     line-height: 58px;
     font-size: 14px;
-    color:#AEB7C2;
+    color:#fafafa;
     text-align: left;
     cursor: pointer;
     position: relative;
@@ -339,7 +340,7 @@
     border-left:5px solid transparent;
 }
 .left-nav ul>li:hover{
-    background: #252c35;
+    background: #1F363D;
 }
 .left-nav ul>li>span{
     display: inline-block;
@@ -354,9 +355,9 @@
 }
 .left-nav ul>li.active{
     width:100%;
-    background: #252c35;
-    color:#fff;
-    border-left:5px solid #d81e06;
+    background: #1F363D;
+    color:#119DA4;
+    border-left:5px solid #119DA4;
 }
 .right-content.set-toggle{
     width:calc(100% - 486px);
@@ -412,7 +413,7 @@
     width:100%;
     line-height: 42px;
     font-size: 15px;
-    color:#676a6d;
+    color:#087E8B;
     padding:0px 15px;
     border-bottom:1px solid #eee;
     position: relative;
@@ -437,7 +438,7 @@
     color:#fff !important;
 }
 .mybtn:hover{
-    background: #d81e06;
+    background: #087E8B;
     box-shadow: 0px 5px 6px 0px rgba(0,0,0,.2);
     color:#fff;
 }
@@ -450,7 +451,7 @@
     margin-left:-50%;
     z-index: 1000;
     overflow: hidden;
-    background: #252c35;
+    background: #221D23;
     padding:20px;
     transition: all .3s ease-out;
     /* border-radius: 5px; */
@@ -515,7 +516,7 @@
 .modal-notice{
     line-height:32px;
     font-size: 13px;
-    color:#d81e06;
+    color:#C1343D;
 }
 .input-pay{
     padding:10px 0px;
@@ -598,7 +599,7 @@
     padding:0px 5px;
     text-align: center;
     font-size: 16px;
-    color:#d81e06;
+    color:#C1343D;
     line-height: 30px;
 }
 .get-price>.cbtn>span{
@@ -625,7 +626,7 @@
 .toggle-icon{
     width:48px;
     height:48px;
-    background: #d81e06;
+    background: #C1343D;
     box-shadow: 0px 3px 10px rgba(0,0,0,.2);
     font-size: 24px;
     color:#fff;

@@ -32,7 +32,7 @@
 }
 .page-list-box>li>div:first-child>span{
     display: inline-block;
-    color:#be1d2c;
+    color:#1F363D;
     margin-right:10px;
 }
 .page-list-box>li>div:last-child{
@@ -45,7 +45,7 @@
     line-height: 32px;
 }
 .page-list-box>li>div:last-child>p.expect>span{
-    color: #be1d2c;
+    color: #1F363D;
     font-size: 18px;
     display: inline-block;
     margin:0px 5px;
@@ -59,7 +59,7 @@
     font-size: 16px;
 }
 .opencode>span{
-    color: #be1d2c;
+    color: #1F363D;
     font-size: 18px;
     display: inline-block;
     margin-left:10px;
@@ -68,7 +68,7 @@
     position: absolute;
     top:10px;
     right:10px;
-    color:#be1d2c;
+    color:#119DA4;
     font-size: 22px;
     cursor: pointer;
 }
@@ -85,7 +85,7 @@
 }
 .currpage-info>div>span{
     display: inline-block;
-    color:#be1d2c;
+    color:#119DA4;
     margin-left: 10px;
     font-size: 16px;
 }
@@ -106,7 +106,7 @@
     font-size: 13px;
 }
 .his-list>ul>li>div>span{
-    color:#be1d2c;
+    color:#087E8B;
     font-size: 15px;
     display: inline-block;
     margin-left: 10px;
@@ -127,13 +127,35 @@
     font-size: 13px;
 }
 .state-no{
-    border:2px solid #be1d2c;
+    border:2px solid #C1343D;
 }
 .state-yes{
-    border:2px solid #009944;
+    border:2px solid #119DA4;
 }
 .state-error{
     border:2px solid #ffba00;
+}
+.page-list{
+    width:100%;
+    height:300px;
+    overflow-y: auto;
+    padding:10px;
+    border-bottom: 1px soldi #eee;
+}
+.page-list>ul>li{
+    width:100%;
+    padding:10px;
+}
+.page-list>ul>li>div{
+    width:100%;
+    padding:5px 0px;
+    font-size: 15px;
+}
+.page-list>ul>li>div>span{
+    color:#119DA4;
+    font-size: 17px;
+    display: inline-block;
+    margin-left: 10px;
 }
 @media screen and (max-width:640px){
     .page-list-box>li{
@@ -155,6 +177,13 @@
         height:calc(100% - 160px);
         overflow-y: auto;
         padding:0px;
-        border-bottom: 1px soldi #eee;
+        border-bottom: 1px solid #eee;
+    }
+    .page-list{
+        width:100%;
+        height:calc(100% - 94px);
+        overflow-y: auto;
+        padding:10px;
+        border-bottom: 1px solid #eee;
     }
 }

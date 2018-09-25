@@ -18,8 +18,8 @@
 }
 .center-tab>li.active{
     background: #fafafa;
-    color:#d81e06;
-    border-top:2px solid #d81e06;
+    color:#1F363D;
+    border-top:2px solid #1F363D;
     border-bottom:1px solid transparent;
 }
 .center-item-box{
@@ -35,7 +35,7 @@
     font-size:14px;color:#777;line-height:22px;
 }
 .name-box>div>span{
-    font-size:14px;color:#d81e06;line-height:22px;display:inline-block;margin-left:5px;cursor: pointer;
+    font-size:14px;color:#1F363D;line-height:22px;display:inline-block;margin-left:5px;cursor: pointer;
 }
 .name-pay{
     width:100%;
@@ -95,7 +95,7 @@
 }
 .name-pay>.pay-card-box .card-num{
     font-size: 18px;
-    color:#d81e06;
+    color:#1F363D;
     font-weight: bold;
     padding-right:10px;
 }
@@ -109,7 +109,7 @@
     width:80px;
     height:50px;
     font-size: 32px;
-    color:#d81e06;
+    color:#1F363D;
     line-height: 50px;
     display: inline-block;
     text-align: center;
@@ -146,7 +146,7 @@
     cursor: pointer;
 }
 .set-item-right:hover{
-    background: #d81e06;
+    background: #1F363D;
     color:#fff;
     border:1px solid transparent;
 }
