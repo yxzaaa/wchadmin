@@ -42,7 +42,7 @@
             <div class='modal-box panel' v-if='modalCode == 2'>
                 <div class='panel-title'>{{currPageData.pagename}}，第{{currPageData.expect}}期开奖号码</div>
                 <div class='modal-item'>
-                    <p class='modal-notice'>输入开奖号码，以，分割。请保证位数正确</p>
+                    <p class='modal-notice'>输入开奖号码，以,;或空格分割。请保证位数正确</p>
                     <div class='input-pay'><input type="text" maxlength="20" v-model="currOpenCode"></div>
                 </div>
                 <div class='modal-btn-box'>
